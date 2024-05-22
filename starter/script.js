@@ -30,7 +30,55 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery: function ({
+    mainIndex = 0,
+    starterIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.mainMenu[mainIndex]} and ${this.starterMenu[starterIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
 };
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Edsall Road, app. 301, VA, 22304',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  address: '7522 Repblic Court, app. 203, VA, 22306',
+});
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+let ab = 111;
+let bc = 999;
+const obj = { ab: 23, bc: 7, cd: 14 };
+
+({ ab, bc } = obj);
+console.log(ab, bc);
+
+const {
+  fri: { open: op, close: cl },
+} = openingHours;
+console.log('The Friday working hours are:');
+console.log(op, cl);
 
 const arr = [2, 3, 4];
 const a = arr[0];
