@@ -41,6 +41,12 @@ const restaurant = {
       `Order received! ${this.mainMenu[mainIndex]} and ${this.starterMenu[starterIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (img1, img2, img3) {
+    console.log(
+      `Here is your delicious pasta with ${img1}, ${img2} and ${img3}`
+    );
+  },
 };
 
 restaurant.orderDelivery({
@@ -54,59 +60,93 @@ restaurant.orderDelivery({
   address: '7522 Repblic Court, app. 203, VA, 22306',
 });
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+const arr2 = [7, 8, 9];
+const badNewArr = [1, 2, ...arr2];
+console.log(badNewArr);
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
+console.log(...badNewArr);
 
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+const newMenu = [...restaurant.mainMenu, 'Manti'];
+console.log(newMenu);
 
-let ab = 111;
-let bc = 999;
-const obj = { ab: 23, bc: 7, cd: 14 };
+const mainMenuCopy = [...restaurant.mainMenu];
 
-({ ab, bc } = obj);
-console.log(ab, bc);
+const wholeMenu = [...restaurant.starterMenu, ...mainMenuCopy];
+console.log(wholeMenu);
 
-const {
-  fri: { open: op, close: cl },
-} = openingHours;
-console.log('The Friday working hours are:');
-console.log(op, cl);
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
 
-const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
+// const ingredients = [
+//   prompt("Let's make pasta! Imgredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+// console.log(ingredients);
+// restaurant.orderPasta(...ingredients);
 
-const [x, y, z] = arr;
-console.log(x, y, z);
-console.log(arr);
+const newRestaurant = { ...restaurant, founder: 'Me' };
+console.log(newRestaurant);
 
-let [first, second] = restaurant.categories;
-console.log(first, second);
+const newRestaurantCopy = { ...restaurant };
+newRestaurantCopy.name = 'Milano';
+console.log(newRestaurantCopy.name);
+console.log(restaurant.name);
 
-const [primary, , third] = restaurant.categories;
-console.log(primary, third);
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
-[first, second] = [second, first];
-console.log(first, second);
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
 
-const [mainCourse, startCourse] = restaurant.order(2, 0);
-console.log(mainCourse, startCourse);
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
 
-const nested = [2, 3, [5, 6]];
-const [i, , j] = nested;
-console.log(i, j);
+// let ab = 111;
+// let bc = 999;
+// const obj = { ab: 23, bc: 7, cd: 14 };
 
-const [k, , [l, m]] = nested;
-console.log(k, l, m);
+// ({ ab, bc } = obj);
+// console.log(ab, bc);
 
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+// const {
+//   fri: { open: op, close: cl },
+// } = openingHours;
+// console.log('The Friday working hours are:');
+// console.log(op, cl);
+
+// const arr = [2, 3, 4];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
+
+// const [x, y, z] = arr;
+// console.log(x, y, z);
+// console.log(arr);
+
+// let [first, second] = restaurant.categories;
+// console.log(first, second);
+
+// const [primary, , third] = restaurant.categories;
+// console.log(primary, third);
+
+// [first, second] = [second, first];
+// console.log(first, second);
+
+// const [mainCourse, startCourse] = restaurant.order(2, 0);
+// console.log(mainCourse, startCourse);
+
+// const nested = [2, 3, [5, 6]];
+// const [i, , j] = nested;
+// console.log(i, j);
+
+// const [k, , [l, m]] = nested;
+// console.log(k, l, m);
+
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
