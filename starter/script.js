@@ -54,6 +54,30 @@ const restaurant = {
   },
 };
 
+const rest1 = {
+  name: 'Capri',
+  numOfGuests: 20,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numOfGuests = rest1.numOfGuests || 10;
+// rest2.numOfGuests = rest1.numOfGuests || 10;
+
+rest1.numOfGuests ||= 10;
+rest2.numOfGuests ||= 10;
+
+rest1.owner = rest1.owner && '<ANONYMOUS>';
+rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+rest1.numOfGuests &&= '<ANONYMOUS>';
+rest2.numOfGuests &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
 console.log('---------OR--------');
 console.log(3 || 'Jonas');
 console.log('Jonas' || 3);
