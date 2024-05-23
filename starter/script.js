@@ -70,6 +70,9 @@ restaurant.numGuests = 23;
 const guests2 = restaurant.numGuests || 10;
 console.log(guests2);
 
+restaurant.numGuests = 0;
+const guestsNum = restaurant.numGuests ?? 10;
+console.log(guestsNum);
 console.log('---------AND--------');
 console.log(0 && 'Jonas');
 console.log('Mary' && 'Jonas');
