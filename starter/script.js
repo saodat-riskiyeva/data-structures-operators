@@ -54,6 +54,35 @@ const restaurant = {
   },
 };
 
+console.log('---------OR--------');
+console.log(3 || 'Jonas');
+console.log('Jonas' || 3);
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(0 || true);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello');
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+restaurant.numGuests = 23;
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('---------AND--------');
+console.log(0 && 'Jonas');
+console.log('Mary' && 'Jonas');
+console.log('Jonas' && undefined);
+console.log('Jonas' && 0);
+console.log('Jonas' && 23 && null && 'Mary');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('salami', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('salami', 'alfredo sauce');
+
 // SPREAD because on the right side
 const arr3 = [1, 2, ...[3, 4]];
 
