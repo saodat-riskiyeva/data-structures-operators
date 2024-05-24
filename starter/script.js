@@ -61,28 +61,49 @@ for (const day of weekdays) {
 console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
 console.log(restaurant.ordderRisotto?.(0, 1) ?? 'Method does not exist');
 
-const users = [
+const userJonas = [
   {
     name: 'Jonas',
     email: 'hello@jonas.io',
   },
 ];
 
-console.log(users[0]?.name ?? 'User array is empty');
+console.log(userJonas[0]?.name ?? 'User array is empty');
+
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+
+console.log(openStr);
+
+const values = Object.values(openingHours);
+console.log(values);
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
 
 // restaurant.openingHours.fri
 //   ? console.log(restaurant.openingHours.fri.open)
 //   : console.log('Not existing');
 
-console.log(restaurant.openingHours.mon?.open);
-console.log(restaurant.openingHours.fri?.open);
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours.fri?.open);
 
-const myMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-for (const item of myMenu) console.log(item);
+// const myMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// for (const item of myMenu) console.log(item);
 
-for (const [i, el] of myMenu.entries()) {
-  console.log(`${i + 1}: ${el}`);
-}
+// for (const [i, el] of myMenu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
 
 // console.log([...myMenu.entries()]);
 
