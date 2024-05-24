@@ -58,6 +58,9 @@ for (const day of weekdays) {
   console.log(`On ${day}, we open at ${open}`);
 }
 
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.ordderRisotto?.(0, 1) ?? 'Method does not exist');
+
 // restaurant.openingHours.fri
 //   ? console.log(restaurant.openingHours.fri.open)
 //   : console.log('Not existing');
