@@ -52,6 +52,19 @@ const restaurant = {
   },
 };
 
+for (const day of weekdays) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// restaurant.openingHours.fri
+//   ? console.log(restaurant.openingHours.fri.open)
+//   : console.log('Not existing');
+
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours.fri?.open);
+
 const myMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const item of myMenu) console.log(item);
 
