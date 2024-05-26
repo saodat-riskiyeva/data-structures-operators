@@ -22,74 +22,140 @@ const openingHours = {
   },
 };
 
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours,
+// const restaurant = {
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+//   openingHours,
 
-  order(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
+//   order(starterIndex, mainIndex) {
+//     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+//   },
 
-  orderDelivery({ mainIndex = 0, starterIndex = 0, time = '20:00', address }) {
-    console.log(
-      `Order received! ${this.mainMenu[mainIndex]} and ${this.starterMenu[starterIndex]} will be delivered to ${address} at ${time}`
-    );
-  },
+//   orderDelivery({ mainIndex = 0, starterIndex = 0, time = '20:00', address }) {
+//     console.log(
+//       `Order received! ${this.mainMenu[mainIndex]} and ${this.starterMenu[starterIndex]} will be delivered to ${address} at ${time}`
+//     );
+//   },
 
-  orderPasta(ing1, ing2, ing3) {
-    console.log(
-      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
-    );
-  },
+//   orderPasta(ing1, ing2, ing3) {
+//     console.log(
+//       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+//     );
+//   },
 
-  orderPizza(mainIngrediant, ...otherIngredients) {
-    console.log(mainIngrediant);
-    console.log(otherIngredients);
-  },
+//   orderPizza(mainIngrediant, ...otherIngredients) {
+//     console.log(mainIngrediant);
+//     console.log(otherIngredients);
+//   },
+// };
+
+// for (const day of weekdays) {
+//   console.log(day);
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.ordderRisotto?.(0, 1) ?? 'Method does not exist');
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(plane.length);
+
+console.log(plane.indexOf('3'));
+console.log(airline.lastIndexOf('A'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-5));
+console.log(airline.slice(1, -2));
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log('Middle seat');
+  } else {
+    console.log('Not a middle seat');
+  }
 };
 
-for (const day of weekdays) {
-  console.log(day);
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  console.log(`On ${day}, we open at ${open}`);
+checkMiddleSeat('11B');
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+const st = 'jOnaS';
+const correct = st[0].toUpperCase() + st.slice(1).toLowerCase();
+console.log(correct);
+
+const email = '  somethInG@gMail.com  \n';
+console.log(email.toLowerCase().trim());
+
+const priceGB = '288,97&';
+const priceUS = priceGB.replaceAll(',', '.').replace('&', '$');
+console.log(priceUS);
+
+const newPlane = 'Airbus A320neo';
+console.log(newPlane.includes('A320'));
+console.log(newPlane.startsWith('A320'));
+
+if (newPlane.startsWith('Airbus') && newPlane.endsWith('neo')) {
+  console.log('Part of Airbus family');
+} else {
+  console.log('Not part of Airbus family');
 }
 
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-console.log(restaurant.ordderRisotto?.(0, 1) ?? 'Method does not exist');
+const checkLuggage = function (items) {
+  const luggage = items.toLowerCase();
+  if (luggage.includes('knife') || luggage.includes('gun')) {
+    console.log('You are not allowed on the plane');
+  } else {
+    console.log('Welcome aboard');
+  }
+};
 
-const userJonas = [
-  {
-    name: 'Jonas',
-    email: 'hello@jonas.io',
-  },
-];
+checkLuggage('I have an apple and a laptop');
+checkLuggage('I have a knife');
+checkLuggage('I have a gun and some books');
+checkLuggage('I have socks and jam');
 
-console.log(userJonas[0]?.name ?? 'User array is empty');
+// const userJonas = [
+//   {
+//     name: 'Jonas',
+//     email: 'hello@jonas.io',
+//   },
+// ];
 
-const properties = Object.keys(openingHours);
-console.log(properties);
+// console.log(userJonas[0]?.name ?? 'User array is empty');
 
-let openStr = `We are open on ${properties.length} days: `;
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-for (const day of properties) {
-  openStr += `${day}, `;
-}
+// let openStr = `We are open on ${properties.length} days: `;
 
-console.log(openStr);
+// for (const day of properties) {
+//   openStr += `${day}, `;
+// }
 
-const values = Object.values(openingHours);
-console.log(values);
+// console.log(openStr);
 
-const entries = Object.entries(openingHours);
-console.log(entries);
+// const values = Object.values(openingHours);
+// console.log(values);
 
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
 
 // restaurant.openingHours.fri
 //   ? console.log(restaurant.openingHours.fri.open)
