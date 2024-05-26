@@ -509,6 +509,31 @@ const game = {
   },
 };
 
+// 1.
+for (const [i, name] of Object.entries(game.scored)) {
+  console.log(`Goal ${Number(i) + 1}: ${name}`);
+}
+
+// 2.
+let average = 0;
+const odd = Object.values(game.odds);
+for (const oddValues of odd) {
+  average += Number(oddValues);
+}
+average /= odd.length;
+console.log(average);
+// 3.
+const results = Object.entries(game.odds);
+for (const [key, value] of results) {
+  console.log(
+    key === 'x'
+      ? `Odd of draw: ${value}`
+      : `Odd of victory ${game[key]}: ${value}`
+  );
+}
+
+// 4.
+
 /*
 // 1.
 for (const [i, player] of game.scored.entries())
