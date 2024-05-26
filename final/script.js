@@ -311,6 +311,23 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
+// 1.
+const gameEventsSet = [...new Set(gameEvents.values())];
+console.log(gameEventsSet);
+
+// 2.
+gameEvents.delete(64);
+console.log(gameEvents);
+
+// 3.
+const num = 90 / gameEvents.size;
+console.log(`An event happened, on average, every ${num} minutes`);
+// 4.
+for (const [minute, event] of gameEvents) {
+  let stmt = minute < 45 ? '[FIRST HALF] ' : '[SECOND HALF] ';
+  stmt += `${minute}: ${event}`;
+  console.log(stmt);
+}
 /*
 // 1.
 const events = [...new Set(gameEvents.values())];
