@@ -179,7 +179,7 @@ document.querySelector('button').addEventListener('click', function () {
       result.push(phrase[i].replace(phrase[i][0], phrase[i][0].toUpperCase()));
     }
     const output = result.join('');
-    console.log(`${output.padEnd(20)}${''.repeat(i + 1)}`);
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
   }
 });
 
