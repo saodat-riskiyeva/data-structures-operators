@@ -164,6 +164,25 @@ maskCredCards('4236546546559413131');
 const messageg2 = 'Bad weather... All departures delayed! \n';
 console.log(messageg2.repeat(5));
 
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const texts = document.querySelector('textarea').value;
+
+  let rows = texts.split('\n');
+
+  for (const [i, row] of rows.entries()) {
+    const phrase = row.trim().toLowerCase().split('_');
+    const result = [phrase[0]];
+    for (let i = 1; i < phrase.length; i++) {
+      result.push(phrase[i].replace(phrase[i][0], phrase[i][0].toUpperCase()));
+    }
+    const output = result.join('');
+    console.log(`${output.padEnd(20)}${''.repeat(i + 1)}`);
+  }
+});
+
 // const userJonas = [
 //   {
 //     name: 'Jonas',
