@@ -127,6 +127,43 @@ checkLuggage('I have a knife');
 checkLuggage('I have a gun and some books');
 checkLuggage('I have socks and jam');
 
+console.log('a+very+long+lesson'.split('+'));
+
+const [firstName, lastName] = 'Jonas Schmidt'.split(' ');
+console.log([firstName]);
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (theName) {
+  const names = theName.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+
+  console.log(namesUpper.join(' '));
+};
+capitalizeName('jessica ann smith davis');
+
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(25, '+').padEnd(30, '+'));
+
+const maskCredCards = function (number) {
+  const str = number + '';
+  const masked = str.slice(-4).padStart(str.length, '*');
+  console.log(masked);
+};
+
+maskCredCards(423659413131);
+maskCredCards('4236546546559413131');
+
+const messageg2 = 'Bad weather... All departures delayed! \n';
+console.log(messageg2.repeat(5));
+
 // const userJonas = [
 //   {
 //     name: 'Jonas',
