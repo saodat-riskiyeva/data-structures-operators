@@ -4,23 +4,47 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-// Data needed for first part of the section
-const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const flightItems = [...flights.split('+')];
 
-const openingHours = {
-  [weekdays[3]]: {
-    open: 12,
-    close: 22,
-  },
-  [weekdays[4]]: {
-    open: 11,
-    close: 23,
-  },
-  [weekdays[5]]: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-};
+for (const [i, flight] of flightItems.entries()) {
+  const data = flight.split(';');
+  const [type, from, to, time] = data;
+
+  const getCode = str => str.slice(0, 3).toUpperCase();
+  let statement = `${type.startsWith('_Delayed') ? '🔴 ' : ''}${type
+    .replaceAll('_', ' ')
+    .trim()} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(46);
+  // data[0].replaceAll('_', ' ').trim() +
+  // ' from ' +
+  // data[1].slice(0, 3).toUpperCase() +
+  // ' to ' +
+  // data[2].slice(0, 3).toUpperCase() +
+  // ' (' +
+  // data[3].replace(':', 'h') +
+  // ')';
+
+  console.log(statement);
+}
+// Data needed for first part of the section
+// const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// const openingHours = {
+//   [weekdays[3]]: {
+//     open: 12,
+//     close: 22,
+//   },
+//   [weekdays[4]]: {
+//     open: 11,
+//     close: 23,
+//   },
+//   [weekdays[5]]: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// };
 
 // const restaurant = {
 //   name: 'Classico Italiano',
@@ -61,127 +85,127 @@ const openingHours = {
 // console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
 // console.log(restaurant.ordderRisotto?.(0, 1) ?? 'Method does not exist');
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
-console.log(plane[0]);
-console.log(plane.length);
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+// console.log(plane[0]);
+// console.log(plane.length);
 
-console.log(plane.indexOf('3'));
-console.log(airline.lastIndexOf('A'));
+// console.log(plane.indexOf('3'));
+// console.log(airline.lastIndexOf('A'));
 
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7));
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
 
-console.log(airline.slice(0, airline.indexOf(' ')));
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
-console.log(airline.slice(-5));
-console.log(airline.slice(1, -2));
+// console.log(airline.slice(-5));
+// console.log(airline.slice(1, -2));
 
-const checkMiddleSeat = function (seat) {
-  const s = seat.slice(-1);
-  if (s === 'B' || s === 'E') {
-    console.log('Middle seat');
-  } else {
-    console.log('Not a middle seat');
-  }
-};
+// const checkMiddleSeat = function (seat) {
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') {
+//     console.log('Middle seat');
+//   } else {
+//     console.log('Not a middle seat');
+//   }
+// };
 
-checkMiddleSeat('11B');
+// checkMiddleSeat('11B');
 
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
 
-const st = 'jOnaS';
-const correct = st[0].toUpperCase() + st.slice(1).toLowerCase();
-console.log(correct);
+// const st = 'jOnaS';
+// const correct = st[0].toUpperCase() + st.slice(1).toLowerCase();
+// console.log(correct);
 
-const email = '  somethInG@gMail.com  \n';
-console.log(email.toLowerCase().trim());
+// const email = '  somethInG@gMail.com  \n';
+// console.log(email.toLowerCase().trim());
 
-const priceGB = '288,97&';
-const priceUS = priceGB.replaceAll(',', '.').replace('&', '$');
-console.log(priceUS);
+// const priceGB = '288,97&';
+// const priceUS = priceGB.replaceAll(',', '.').replace('&', '$');
+// console.log(priceUS);
 
-const newPlane = 'Airbus A320neo';
-console.log(newPlane.includes('A320'));
-console.log(newPlane.startsWith('A320'));
+// const newPlane = 'Airbus A320neo';
+// console.log(newPlane.includes('A320'));
+// console.log(newPlane.startsWith('A320'));
 
-if (newPlane.startsWith('Airbus') && newPlane.endsWith('neo')) {
-  console.log('Part of Airbus family');
-} else {
-  console.log('Not part of Airbus family');
-}
+// if (newPlane.startsWith('Airbus') && newPlane.endsWith('neo')) {
+//   console.log('Part of Airbus family');
+// } else {
+//   console.log('Not part of Airbus family');
+// }
 
-const checkLuggage = function (items) {
-  const luggage = items.toLowerCase();
-  if (luggage.includes('knife') || luggage.includes('gun')) {
-    console.log('You are not allowed on the plane');
-  } else {
-    console.log('Welcome aboard');
-  }
-};
+// const checkLuggage = function (items) {
+//   const luggage = items.toLowerCase();
+//   if (luggage.includes('knife') || luggage.includes('gun')) {
+//     console.log('You are not allowed on the plane');
+//   } else {
+//     console.log('Welcome aboard');
+//   }
+// };
 
-checkLuggage('I have an apple and a laptop');
-checkLuggage('I have a knife');
-checkLuggage('I have a gun and some books');
-checkLuggage('I have socks and jam');
+// checkLuggage('I have an apple and a laptop');
+// checkLuggage('I have a knife');
+// checkLuggage('I have a gun and some books');
+// checkLuggage('I have socks and jam');
 
-console.log('a+very+long+lesson'.split('+'));
+// console.log('a+very+long+lesson'.split('+'));
 
-const [firstName, lastName] = 'Jonas Schmidt'.split(' ');
-console.log([firstName]);
+// const [firstName, lastName] = 'Jonas Schmidt'.split(' ');
+// console.log([firstName]);
 
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
 
-const capitalizeName = function (theName) {
-  const names = theName.split(' ');
-  const namesUpper = [];
+// const capitalizeName = function (theName) {
+//   const names = theName.split(' ');
+//   const namesUpper = [];
 
-  for (const n of names) {
-    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
-  }
+//   for (const n of names) {
+//     // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
 
-  console.log(namesUpper.join(' '));
-};
-capitalizeName('jessica ann smith davis');
+//   console.log(namesUpper.join(' '));
+// };
+// capitalizeName('jessica ann smith davis');
 
-const message = 'Go to gate 23!';
-console.log(message.padStart(25, '+').padEnd(30, '+'));
-console.log('Jonas'.padStart(25, '+').padEnd(30, '+'));
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+').padEnd(30, '+'));
+// console.log('Jonas'.padStart(25, '+').padEnd(30, '+'));
 
-const maskCredCards = function (number) {
-  const str = number + '';
-  const masked = str.slice(-4).padStart(str.length, '*');
-  console.log(masked);
-};
+// const maskCredCards = function (number) {
+//   const str = number + '';
+//   const masked = str.slice(-4).padStart(str.length, '*');
+//   console.log(masked);
+// };
 
-maskCredCards(423659413131);
-maskCredCards('4236546546559413131');
+// maskCredCards(423659413131);
+// maskCredCards('4236546546559413131');
 
-const messageg2 = 'Bad weather... All departures delayed! \n';
-console.log(messageg2.repeat(5));
+// const messageg2 = 'Bad weather... All departures delayed! \n';
+// console.log(messageg2.repeat(5));
 
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
 
-document.querySelector('button').addEventListener('click', function () {
-  const texts = document.querySelector('textarea').value;
+// document.querySelector('button').addEventListener('click', function () {
+//   const texts = document.querySelector('textarea').value;
 
-  let rows = texts.split('\n');
+//   let rows = texts.split('\n');
 
-  for (const [i, row] of rows.entries()) {
-    const phrase = row.trim().toLowerCase().split('_');
-    const result = [phrase[0]];
-    for (let i = 1; i < phrase.length; i++) {
-      result.push(phrase[i].replace(phrase[i][0], phrase[i][0].toUpperCase()));
-    }
-    const output = result.join('');
-    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
-  }
-});
+//   for (const [i, row] of rows.entries()) {
+//     const phrase = row.trim().toLowerCase().split('_');
+//     const result = [phrase[0]];
+//     for (let i = 1; i < phrase.length; i++) {
+//       result.push(phrase[i].replace(phrase[i][0], phrase[i][0].toUpperCase()));
+//     }
+//     const output = result.join('');
+//     console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+//   }
+// });
 
 // const userJonas = [
 //   {
